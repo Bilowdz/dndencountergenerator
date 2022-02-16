@@ -54,10 +54,10 @@ const StyledMenu = styled((props: MenuProps) => (
   },
 }))
 
-export default function Playermenu() {
+export default function Sizemenu() {
   const [anchorEl, setAnchorEl] = React.useState<null | HTMLElement>(null)
   const open = Boolean(anchorEl)
-  const [playerCount, setPlayerCount] = useState(0)
+  const [size, setSize] = useState('any size')
   const handleClick = (event: React.MouseEvent<HTMLElement>) => {
     setAnchorEl(event.currentTarget)
   }
@@ -77,7 +77,7 @@ export default function Playermenu() {
         onClick={handleClick}
         endIcon={<KeyboardArrowDownIcon />}
       >
-        Number of Players
+        Size of Monsters
       </Button>
       <StyledMenu
         id='demo-customized-menu'
@@ -90,78 +90,69 @@ export default function Playermenu() {
       >
         <MenuItem
           onClick={() => {
-            setPlayerCount(1)
+            setSize('any size')
             handleClose()
           }}
           disableRipple
         >
-          1
+          any size
         </MenuItem>
         <MenuItem
           onClick={() => {
-            setPlayerCount(2)
+            setSize('tiny')
             handleClose()
           }}
           disableRipple
         >
-          2
+          tiny
         </MenuItem>
         <MenuItem
           onClick={() => {
-            setPlayerCount(3)
+            setSize('small')
             handleClose()
           }}
           disableRipple
         >
-          3
+          small
         </MenuItem>
         <MenuItem
           onClick={() => {
-            setPlayerCount(4)
+            setSize('medium')
             handleClose()
           }}
           disableRipple
         >
-          4
+          medium
         </MenuItem>
         <MenuItem
           onClick={() => {
-            setPlayerCount(5)
+            setSize('large')
             handleClose()
           }}
           disableRipple
         >
-          5
+          large
         </MenuItem>
         <MenuItem
           onClick={() => {
-            setPlayerCount(6)
+            setSize('huge')
             handleClose()
           }}
           disableRipple
         >
-          6
+          huge
         </MenuItem>
         <MenuItem
           onClick={() => {
-            setPlayerCount(7)
+            setSize('gargantuan')
             handleClose()
           }}
           disableRipple
         >
-          7
-        </MenuItem>
-        <MenuItem
-          onClick={() => {
-            setPlayerCount(8)
-            handleClose()
-          }}
-          disableRipple
-        >
-          8
+          gargantuan
         </MenuItem>
       </StyledMenu>
-      <p>{playerCount}</p>
+      <p>{size}</p>
     </div>
   )
 }

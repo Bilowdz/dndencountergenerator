@@ -16,11 +16,11 @@ const StyledMenu = styled((props: MenuProps) => (
     elevation={0}
     anchorOrigin={{
       vertical: 'bottom',
-      horizontal: 'right',
+      horizontal: 'left',
     }}
     transformOrigin={{
       vertical: 'top',
-      horizontal: 'right',
+      horizontal: 'left',
     }}
     {...props}
   />
@@ -269,7 +269,7 @@ export default function Levelmenu() {
           20
         </MenuItem>
       </StyledMenu>
-      <h1>{playerCount}</h1>
+      <p>{playerCount}</p>
     </div>
   )
 }
