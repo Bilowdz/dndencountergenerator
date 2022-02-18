@@ -3,16 +3,10 @@ import { styled, alpha } from '@mui/material/styles'
 import Button from '@mui/material/Button'
 import Menu, { MenuProps } from '@mui/material/Menu'
 import MenuItem from '@mui/material/MenuItem'
-import EditIcon from '@mui/icons-material/Edit'
-import Divider from '@mui/material/Divider'
-import ArchiveIcon from '@mui/icons-material/Archive'
-import FileCopyIcon from '@mui/icons-material/FileCopy'
-import MoreHorizIcon from '@mui/icons-material/MoreHoriz'
 import KeyboardArrowDownIcon from '@mui/icons-material/KeyboardArrowDown'
-import { createContext, useEffect, useState } from 'react'
-import App from '../App'
+import { createContext, useState } from 'react'
 
-export const UserContext = createContext('')
+export const playerContext = createContext(1)
 
 const StyledMenu = styled((props: MenuProps) => (
   <Menu
@@ -61,10 +55,6 @@ export default function Playermenu() {
   const [anchorEl, setAnchorEl] = React.useState<null | HTMLElement>(null)
   const open = Boolean(anchorEl)
   const [playerCount, setPlayerCount] = useState(1)
-  const [easyxp, setEasyxp] = useState(25)
-  const [mediumxp, setMediumxp] = useState(50)
-  const [hardxp, setHardxp] = useState(75)
-  const [deadlyxp, setDeadlyxp] = useState(100)
 
   const handleClick = (event: React.MouseEvent<HTMLElement>) => {
     setAnchorEl(event.currentTarget)
@@ -72,14 +62,8 @@ export default function Playermenu() {
   const handleClose = () => {
     setAnchorEl(null)
   }
-  useEffect(() => {
-    setEasyxp(playerCount * 25)
-  }, [playerCount])
   return (
     <div>
-      {/* <UserContext.Provider value={'Vishwas'}>
-        <App />
-      </UserContext.Provider> */}
       <Button
         id='demo-customized-button'
         aria-controls={open ? 'demo-customized-menu' : undefined}
@@ -175,7 +159,8 @@ export default function Playermenu() {
         </MenuItem>
       </StyledMenu>
       <p>{playerCount}</p>
-      <p>easy: {easyxp} xp</p>
+      <playerContext.Provider value={playerCount}>
+      </playerContext.Provider>
     </div>
   )
 }
