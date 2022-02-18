@@ -57,7 +57,7 @@ const StyledMenu = styled((props: MenuProps) => (
 export default function Levelmenu() {
   const [anchorEl, setAnchorEl] = React.useState<null | HTMLElement>(null)
   const open = Boolean(anchorEl)
-  const [playerCount, setPlayerCount] = useState(0)
+  const [playerCount, setPlayerCount] = useState(1)
   const handleClick = (event: React.MouseEvent<HTMLElement>) => {
     setAnchorEl(event.currentTarget)
   }

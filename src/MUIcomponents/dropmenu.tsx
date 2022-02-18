@@ -9,7 +9,10 @@ import ArchiveIcon from '@mui/icons-material/Archive'
 import FileCopyIcon from '@mui/icons-material/FileCopy'
 import MoreHorizIcon from '@mui/icons-material/MoreHoriz'
 import KeyboardArrowDownIcon from '@mui/icons-material/KeyboardArrowDown'
-import { useState } from 'react'
+import { createContext, useEffect, useState } from 'react'
+import App from '../App'
+
+export const UserContext = createContext('')
 
 const StyledMenu = styled((props: MenuProps) => (
   <Menu
@@ -57,16 +60,26 @@ const StyledMenu = styled((props: MenuProps) => (
 export default function Playermenu() {
   const [anchorEl, setAnchorEl] = React.useState<null | HTMLElement>(null)
   const open = Boolean(anchorEl)
-  const [playerCount, setPlayerCount] = useState(0)
+  const [playerCount, setPlayerCount] = useState(1)
+  const [easyxp, setEasyxp] = useState(25)
+  const [mediumxp, setMediumxp] = useState(50)
+  const [hardxp, setHardxp] = useState(75)
+  const [deadlyxp, setDeadlyxp] = useState(100)
+
   const handleClick = (event: React.MouseEvent<HTMLElement>) => {
     setAnchorEl(event.currentTarget)
   }
   const handleClose = () => {
     setAnchorEl(null)
   }
-
+  useEffect(() => {
+    setEasyxp(playerCount * 25)
+  }, [playerCount])
   return (
     <div>
+      {/* <UserContext.Provider value={'Vishwas'}>
+        <App />
+      </UserContext.Provider> */}
       <Button
         id='demo-customized-button'
         aria-controls={open ? 'demo-customized-menu' : undefined}
@@ -162,6 +175,7 @@ export default function Playermenu() {
         </MenuItem>
       </StyledMenu>
       <p>{playerCount}</p>
+      <p>easy: {easyxp} xp</p>
     </div>
   )
 }
