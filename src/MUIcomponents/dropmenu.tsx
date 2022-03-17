@@ -8,6 +8,8 @@ import { useContext } from 'react';
 
 import { playerContext } from '../contexts/playerContext';
 
+// drop down menu used to choose the number of players in the encounter
+
 const StyledMenu = styled((props: MenuProps) => (
   <Menu
     elevation={0}

@@ -8,6 +8,8 @@ import { useContext, useState } from 'react';
 
 import { levelContext } from '../contexts/levelContext';
 
+// drop down menu used to choose the average level of the players
+
 const StyledMenu = styled((props: MenuProps) => (
   <Menu
     elevation={0}

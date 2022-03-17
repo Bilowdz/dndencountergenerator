@@ -8,6 +8,9 @@ import { useState, useContext } from 'react';
 
 import { sizeContext } from '../contexts/sizeContext';
 
+// drop down menu used to choose the size of the monsters
+// in the encounter
+
 const StyledMenu = styled((props: MenuProps) => (
   <Menu
     elevation={0}
